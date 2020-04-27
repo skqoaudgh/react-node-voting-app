@@ -1,9 +1,14 @@
+require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 
 const handle = require('./controllers');
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT;
+
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello world');
