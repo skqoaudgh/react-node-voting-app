@@ -11,10 +11,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  polls: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Poll',
-  },
+  polls: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Poll',
+    },
+  ],
   created: {
     type: Date,
     default: Date.now,
