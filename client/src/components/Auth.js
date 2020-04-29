@@ -35,6 +35,7 @@ class Auth extends Component {
             type="text"
             value={username}
             name="username"
+            autoComplete="off"
             onChange={this.handleChange}
           />
           <label htmlFor="password">password</label>
@@ -42,6 +43,7 @@ class Auth extends Component {
             type="password"
             value={password}
             name="password"
+            autoComplete="off"
             onChange={this.handleChange}
           />
           <button type="submit">Submit</button>
