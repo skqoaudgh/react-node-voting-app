@@ -5,6 +5,8 @@ import decode from 'jwt-decode';
 import { store } from './store/index';
 import { setToken, setCurrentUser, addError } from './store/actions';
 
+import Auth from './components/Auth';
+
 if (localStorage.jwtToken) {
   setToken(localStorage.jwtToken);
   try {
@@ -17,7 +19,7 @@ if (localStorage.jwtToken) {
 
 const App = () => (
   <Provider store={store}>
-    <div>Hello World!</div>
+    <Auth />
   </Provider>
 );
 
