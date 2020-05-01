@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import { Pie } from 'react-chartjs-2';
 
 import { vote } from '../store/actions';
-
-const color = () => {
-  return '#' + Math.random().toString(16).slice(2, 8);
-};
+import { color } from '../services/color';
 
 const Poll = ({ poll, vote }) => {
   const answers =
@@ -22,7 +19,7 @@ const Poll = ({ poll, vote }) => {
 
   const data = {
     labels: poll.options.map((option) => option.option),
-    dataset: [
+    datasets: [
       {
         label: poll.question,
         backgroundColor: poll.options.map(() => color()),
