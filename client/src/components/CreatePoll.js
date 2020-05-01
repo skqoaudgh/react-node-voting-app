@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { createPoll } from '../store/actions';
@@ -32,9 +33,10 @@ class CreatePoll extends Component {
     this.setState({ options });
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
-    this.props.createPoll(this.state);
+    await this.props.createPoll(this.state);
+    this.props.history.push('/');
   }
 
   render() {
@@ -75,4 +77,4 @@ class CreatePoll extends Component {
   }
 }
 
-export default connect(null, { createPoll })(CreatePoll);
+export default withRouter(connect(null, { createPoll })(CreatePoll));
