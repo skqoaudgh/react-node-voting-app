@@ -11,19 +11,22 @@ class Auth extends Component {
       username: '',
       password: '',
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-  };
+  }
 
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     e.preventDefault();
 
     const { username, password } = this.state;
     const { authType } = this.props;
     this.props.authUser(authType || 'login', { username, password });
-  };
+  }
 
   render() {
     const { username, password } = this.state;
