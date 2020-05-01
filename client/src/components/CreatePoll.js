@@ -40,8 +40,9 @@ class CreatePoll extends Component {
   render() {
     const options = this.state.options.map((option, index) => (
       <Fragment key={index}>
-        <label>{index + 1}번 항목</label>
+        <label className="form-label">{index + 1}번 항목</label>
         <input
+          className="form-input"
           type="text"
           value={option}
           onChange={(e) => this.handleAnswer(e, index)}
@@ -49,19 +50,26 @@ class CreatePoll extends Component {
       </Fragment>
     ));
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="question">질문</label>
+      <form className="form" onSubmit={this.handleSubmit}>
+        <label className="form-label" htmlFor="question">
+          질문
+        </label>
         <input
+          className="form-input"
           type="text"
           name="question"
           value={this.state.question}
           onChange={this.handleChange}
         />
         {options}
-        <button type="button" onClick={this.addAnswer}>
-          항목 추가
-        </button>
-        <button type="submit">제출</button>
+        <div className="button_center">
+          <button className="button" type="button" onClick={this.addAnswer}>
+            항목 추가
+          </button>
+          <button className="button" type="submit">
+            제출
+          </button>
+        </div>
       </form>
     );
   }

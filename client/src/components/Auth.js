@@ -32,24 +32,34 @@ class Auth extends Component {
     const { username, password } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="username">username</label>
+        <form className="form" onSubmit={this.handleSubmit}>
+          <label className="form-label" htmlFor="username">
+            아이디
+          </label>
           <input
+            className="form-input"
             type="text"
             value={username}
             name="username"
             autoComplete="off"
             onChange={this.handleChange}
           />
-          <label htmlFor="password">password</label>
+          <label className="form-label" htmlFor="password">
+            비밀번호
+          </label>
           <input
+            className="form-input"
             type="password"
             value={password}
             name="password"
             autoComplete="off"
             onChange={this.handleChange}
           />
-          <button type="submit">Submit</button>
+          <div className="button_center">
+            <button className="button" type="submit">
+              확인
+            </button>
+          </div>
         </form>
       </div>
     );
