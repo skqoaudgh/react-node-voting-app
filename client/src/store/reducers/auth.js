@@ -13,6 +13,6 @@ export default (state = initialState, action) => {
         user: action.user,
       };
     default:
-      return { ...state };
+      return state;
   }
 };

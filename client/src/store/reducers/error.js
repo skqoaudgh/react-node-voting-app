@@ -11,6 +11,6 @@ export default (state = initialState, action) => {
     case REMOVE_ERROR:
       return { ...state, message: null };
     default:
-      return { ...state };
+      return state;
   }
 };
