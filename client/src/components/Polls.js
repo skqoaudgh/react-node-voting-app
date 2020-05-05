@@ -24,6 +24,7 @@ class Polls extends Component {
     const polls = this.props.polls.map((poll) => (
       <li onClick={() => this.handleSelect(poll._id)} key={poll._id}>
         {poll.question}
+        {poll.user.username && <span>by {poll.user.username}</span>}
       </li>
     ));
 

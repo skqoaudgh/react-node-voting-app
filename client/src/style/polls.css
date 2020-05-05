@@ -16,6 +16,11 @@
   border: 2px solid var(--blue);
 }
 
+.polls li span {
+  color: #525252;
+  margin-left: 1rem;
+}
+
 .poll-title {
   color: var(--blue);
   font-size: 2rem;
