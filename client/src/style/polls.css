@@ -28,3 +28,14 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+.chart-container {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+.chart-container canvas {
+  width: 80%;
+  height: auto;
+}

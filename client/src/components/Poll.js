@@ -54,7 +54,15 @@ const Poll = ({ auth, poll, vote, deletePoll }) => {
         )}
       </div>
       <div className="button_center">{answers}</div>
-      <Pie data={data} />
+      <div className="chart-container">
+        <Pie
+          data={data}
+          options={{
+            maintainAspectRatio: false,
+            responsive: true,
+          }}
+        />
+      </div>
     </div>
   );
 };
