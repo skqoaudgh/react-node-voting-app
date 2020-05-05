@@ -5,7 +5,6 @@ import ErrorMessage from '../components/ErrorMessage';
 
 const PollPage = ({ match, getPoll }) => {
   getPoll(match.params.id);
-  console.log(match.params.id);
   return (
     <div>
       <ErrorMessage />

@@ -7,6 +7,7 @@
   margin: 1rem;
   padding: 0.2rem 1rem;
   transition: all 0.2s ease-out;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -14,6 +15,27 @@
 }
 
 .button_center {
+  display: flex;
+  justify-content: center;
+}
+
+.button_delete {
+  cursor: pointer;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: auto;
+  margin-left: 1rem;
+  padding: 0.4rem;
+  border: 2px solid #585858;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+}
+
+.button_delete:hover {
+  background-color: #ffcbc6;
+}
+
+.title-container {
   display: flex;
   justify-content: center;
 }

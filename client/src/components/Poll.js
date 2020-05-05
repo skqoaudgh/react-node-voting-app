@@ -1,11 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Pie } from 'react-chartjs-2';
 
-import { vote } from '../store/actions';
+import { vote, deletePoll } from '../store/actions';
 import { color } from '../services/color';
 
-const Poll = ({ poll, vote }) => {
+import DELETE_ICON from '../assets/delete.svg';
+
+const Poll = ({ auth, poll, vote, deletePoll }) => {
+  const history = useHistory();
   const answers =
     poll.options &&
     poll.options.map((option) => (
@@ -30,9 +34,25 @@ const Poll = ({ poll, vote }) => {
     ],
   };
 
+  async function handleDelete(path) {
+    await deletePoll(path);
+    history.push('/');
+  }
+
   return (
     <div>
-      <h3 className="poll-title">{poll.question}</h3>
+      <div className="title-container">
+        <h3 className="poll-title">{poll.question}</h3>
+        {poll && auth.user && poll.user === auth.user.id && (
+          <img
+            className="button_delete"
+            src={DELETE_ICON}
+            alt=""
+            title="삭제"
+            onClick={() => handleDelete(poll._id)}
+          />
+        )}
+      </div>
       <div className="button_center">{answers}</div>
       <Pie data={data} />
     </div>
@@ -42,6 +62,7 @@ const Poll = ({ poll, vote }) => {
 export default connect(
   (store) => ({
     poll: store.currentPoll,
+    auth: store.auth,
   }),
-  { vote }
+  { vote, deletePoll }
 )(Poll);

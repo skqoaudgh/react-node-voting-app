@@ -5,6 +5,7 @@
   text-align: center;
   width: 80%;
   margin: auto;
+  cursor: pointer;
 }
 
 .polls li:nth-child(odd) {

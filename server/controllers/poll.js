@@ -48,10 +48,7 @@ exports.usersPolls = async (req, res, next) => {
 exports.getPoll = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const poll = await db.Poll.findById(id).populate('user', [
-      'username',
-      'id',
-    ]);
+    const poll = await db.Poll.findById(id);
 
     if (!poll) throw new Error('No pull found');
 
